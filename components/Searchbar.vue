@@ -1,38 +1,41 @@
 <template>
-  <form>
+  <form @submit.prevent="searchLocation">
     <div class="grid">
       <input
         type="text"
-        name="firstname"
-        placeholder="First name"
-        aria-label="First name"
-        required
+        placeholder="Location"
+        v-model="locationQuery"
       />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email address"
-        aria-label="Email address"
-        required
-      />
-      <button type="submit">Subscribe</button>
+    
+      <button class="secondary" type="submit">Search</button> <!-- Changed button text -->
     </div>
-    <fieldset>
-      <label for="terms">
-        <input type="checkbox" role="switch" id="terms" name="terms" />
-        I agree to the
-        <a href="#" onclick="event.preventDefault()">Privacy Policy</a>
-      </label>
-    </fieldset>
+    <ul>
+      <li v-for="(location, index) in searchedLocations.slice().reverse()" :key="index">
+         : {{ location.display_name }}
+      </li>
+    </ul>
   </form>
 </template>
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      locationQuery: '',
+    };
+  },
+  computed: {
+    // Access searchedLocations from the store
+    searchedLocations() {
+      return this.$store.getters['getSearchedLocations'];
+    },
+  },
+  methods: {
+    async searchLocation() {
+      console.log('Input Value:', this.locationQuery);
+      // Dispatch the action to fetch location data based on locationQuery
+      await this.$store.dispatch('fetchLocationData', this.locationQuery);
+    },
+  },
+};
 </script>
-
-<style>
-
-</style>

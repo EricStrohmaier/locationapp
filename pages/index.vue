@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <h1>Index Page</h1>
- 
-  <section  class="section">
-      <h1 class="title">Welcome to Our Landing Page</h1>
-      <p class="description">A simple and clean landing page created with Pico CSS.</p>
+  <div class="container">
+    <section class="container-fluid">
+      <h1 class="title">Welcome</h1>
+      <p class="description">no location set</p>
     </section>
-
-
+    <main class="container-fluid">
+      <Searchbar />
+    </main>
   </div>
 </template>
 
-
 <script>
-
 export default {
-  name: 'IndexPage',
-}
+  name: "IndexPage",
+ 
+};
 </script>
