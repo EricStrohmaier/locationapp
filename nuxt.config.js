@@ -15,6 +15,14 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  router: {
+    extendRoutes(routes) {
+      routes.push({
+        path: '/location/:locationName',
+        component: 'pages/location/_index.vue',
+      });
+    },
+  },
 
   css: ['~/assets/css/pico.min.css'], // Correct the CSS reference
 
