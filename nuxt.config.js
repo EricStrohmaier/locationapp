@@ -27,7 +27,9 @@ export default {
     },
   },
 
-  css: ["~/assets/css/pico.min.css"], // Correct the CSS reference
+  css: [
+    "~/assets/css/pico.min.css",
+], 
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],

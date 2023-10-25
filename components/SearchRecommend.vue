@@ -1,18 +1,18 @@
 <template>
   <div>
     <h4>List of Search Recommendations</h4>
-    <div class="">
-      <ul>
-        <li style="cursor: pointer" @click="setLocationQuery('London')">
+    <div class="grid grid-style">
+      
+        <li class="item"  @click="setLocationQuery('London')">
           London
         </li>
-        <li style="cursor: pointer" @click="setLocationQuery('Paris')">
+        <li class="item" @click="setLocationQuery('Paris')">
           Paris
         </li>
-        <li style="cursor: pointer" @click="setLocationQuery('New York')">
+        <li class="item" @click="setLocationQuery('New York')">
           New York
         </li>
-      </ul>
+    
     </div>
   </div>
 </template>
@@ -40,4 +40,28 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.grid-style {
+  padding-bottom: 20px;
+}
+.item {
+  cursor: pointer;
+  list-style: none;
+  padding: 5px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  background-color: #ffffffd6;
+  color: black;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+  
+}
+:hover.item {
+  transition: ease-in-out 0.2s;
+  background-color: #797979;
+  color: rgb(255, 255, 255);
+}
+
+
+</style>
